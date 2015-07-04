@@ -12,8 +12,7 @@
     <div class="col-md-12">
 
       <div class="page-header">          
-        <h1>Listing all Projects<br>
-        <small><%= pluralize(@projects.count, "Project") %></small></h1>
+        <h1>Projects</h1>
       </div>
 
       <div class="col-md-3" id="leftCol">
@@ -25,27 +24,11 @@
       <div class="col-md-9" id="rightCol"> 
         <div class="well"> 
           <div class="table-responsive table-scrollable">
-            <table class="table table-striped table-bordered table-hover "> 
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Deadline</th>
-                  <th>Done</th>
-                  <th>Duration</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <% @projects.each do |project| %>
-                  <tr>
-                    <td><%= link_to project.name, project_path(project) %></td>
-                    <td><%= project.deadline %></td>
-                    <td><%= project.done %></td>
-                    <td><%= project.duration %></td>                   
-                  </tr>
-                <% end %>
-              </tbody>
-          </table>
+            <h2>To do</h2>
+            <%= render partial: "projecttable", locals: {projects: @todo} %>
+            <h2>Done</h2>
+            <%= render partial: "projecttable", locals: {projects: @done} %>
+          </div>
         </div>
       </div>
 
