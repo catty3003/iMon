@@ -24,9 +24,9 @@
       <div class="col-md-9" id="rightCol"> 
         <div class="well"> 
           <div class="table-responsive table-scrollable">
-            <h2>To do</h2>
+            <h2>To do </br><small><%= pluralize(@todo.count, "Task") %></small></h2>
             <%= render partial: "projecttable", locals: {projects: @todo} %>
-            <h2>Done</h2>
+            <h2>Done</br><small><%= pluralize(@done.count, "Task") %></small></h2>
             <%= render partial: "projecttable", locals: {projects: @done} %>
           </div>
         </div>
