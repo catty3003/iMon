@@ -143,6 +143,10 @@ h1 {
   color:white;
 }
 
+.done {
+  text-decoration:line-through;
+}
+
 
 
 
@@ -5982,7 +5986,6 @@ button.close {
 table a,
 .table a {
   color: #fff;
-  text-decoration: underline;
 }
 table .text-muted,
 .table .text-muted {
