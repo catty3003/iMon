@@ -26,4 +26,7 @@
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+
+<%= link_to 'Back', projects_path %> |
+
+<td><%= link_to 'Destroy', @project, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
