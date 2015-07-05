@@ -15,46 +15,67 @@
 
       <div class="col-md-9" id="rightCol"> 
         <div class="well"> 
-          <p>
-          <strong>Name:</strong>
-            <%= @project.name %>
-          </p>
 
-          <p>
-            <strong>Comment:</strong>
-            <%= @project.comment %>
-          </p>
+          <div class="panel panel-info">
+            <div class="panel-body">
+              <p>
+              <strong>Name:</strong>
+                <%= @project.name %>
+              </p>
 
-        <table class="table">
-          <thead>
-            <tr>
-              <td>Status</td>
-              <td>Deadline</td>
-              <td>Duration</td>
-              <td colspan="3"></td>
-            </tr>
-          </thead>
+              <p>
+                <strong>Comment:</strong>
+                <%= @project.comment %>
+              </p>
 
-          <tbody>
-              <tr>
-                <td>
-                  <%= form_for @project do |f| %>
-                  <%= f.check_box :done, class: "checkable" %>
-                  <% end %>
-                </td>
-                <td><%= @project.deadline %></td>
-                <td><%= @project.duration %></td>
-                <td><%= link_to 'Back', projects_path %></td>
-                <td><%= link_to 'Edit', edit_project_path(@project) %></td>
-                <td><%= link_to 'Destroy', @project, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
-          </tbody>
-        </table>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <td>Status</td>
+                    <td>Deadline</td>
+                    <td>Duration</td>
+                    <td colspan="3"></td>
+                  </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                      <td>
+                        <%= form_for @project do |f| %>
+                        <%= f.check_box :done, class: "checkable" %>
+                        <% end %>
+                      </td>
+                      <td><%= @project.deadline %></td>
+                      <td><%= @project.duration %></td>
+                      <td><%= link_to 'Back to Project overview', projects_path, class: "btn btn-info btn-sm" %></td>
+                      <td><%= link_to 'Edit', edit_project_path(@project), class: "btn btn-warning btn-sm" %></td>
+                      <td><%= link_to 'Destroy', @project, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>   
 
         </div>
+
+          <% @project.ideas.order(created_at: :desc).each do |idea| %>
+            <div class="col-md-4">
+              <div class="thumbnail", id="thumb">                           
+                <%= link_to idea.post, idea_path(idea) %>                          
+              </div>
+            </div>
+          <% end %>
+
+
       </div>
 
     </div>
   </div>
 </div>
+
+
+
+
+
 

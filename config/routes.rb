@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get "projects/home"
   get "projects/about"
+  
   resources :ideas
   devise_for :users
   resources :projects

@@ -13,8 +13,8 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="link"><%= link_to "Project", projects_path %></li>
-        <li class="link"><%= link_to "Ideas", ideas_path %></li>
+        <li class="<%= "active" if params[:controller] == "projects" %>"><%= link_to "Project", projects_path %></li>
+        <li class="<%= "active" if params[:controller] == "ideas" %>"><%= link_to "Ideas", ideas_path %></li>
         <li class="link"><%= link_to "About", projects_about_path %></li> 
       </ul>
 
