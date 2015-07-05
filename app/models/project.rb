@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
 
+	belongs_to :user
+
 	validates :name, :deadline, presence: true
 	validates :duration, presence: true, numericality: true 
 
