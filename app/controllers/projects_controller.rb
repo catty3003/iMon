@@ -11,10 +11,9 @@ class ProjectsController < ApplicationController
       @done = Project.where("done = ? OR deadline < ?", true, Date.today).order(params[:sorting] => :asc)
       @todo = Project.where("done = ? AND deadline > ?", false, Date.today).order(params[:sorting] => :asc)
     else 
-      @done = Project.where("done = ? OR deadline < ?", true, Date.today)      
-      @done = @done.order(deadline: :desc)
-      @todo = Project.where("done = ? AND deadline > ?", false, Date.today)
-      @todo = @todo.order(deadline: :asc)
+      @done = Project.where("done = ? OR deadline < ?", true, Date.today).order(deadline: :desc)     
+      @todo = Project.where("done = ? AND deadline > ?", false, Date.today).order(deadline: :asc)
+
     end
   end
 
