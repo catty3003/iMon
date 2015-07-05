@@ -3,6 +3,7 @@ require 'test_helper'
 class ProjectsControllerTest < ActionController::TestCase
   setup do
     @project = projects(:one)
+    request.env["HTTP_REFERER"] = "http://localhost:3000"
   end
 
   test "should get index" do
@@ -37,7 +38,7 @@ class ProjectsControllerTest < ActionController::TestCase
 
   test "should update project" do
     patch :update, id: @project, project: { deadline: @project.deadline, done: @project.done, duration: @project.duration, name: @project.name, user_id: @project.user_id }
-    assert_redirected_to project_path(assigns(:project))
+    assert_redirected_to :back  
   end
 
   test "should destroy project" do
