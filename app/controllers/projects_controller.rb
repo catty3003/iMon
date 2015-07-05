@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project_admin_edit_destroy, only: [:edit, :update, :destroy]
+  before_action :set_project_admin_create, only: [:new, :create]
   before_action :authenticate_user!
 
   # GET /projects
@@ -33,9 +35,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(project_params)
     @project = current_user.projects.new(project_params)
-
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -75,6 +75,20 @@ class ProjectsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
+    end
+
+    def set_project_admin_edit_destroy
+      @project = Project.find(params[:id])
+      if @project.user_id != current_user.id || @project.user.admin != true
+        redirect_to :back, alert: 'Only Admin are alowd to edit/delete Projects.'
+      end
+    end
+
+    def set_project_admin_create
+      @project = Project.new
+      if @project.user_id != current_user.id || @project.user.admin != true
+        redirect_to :back, alert: 'Only Admin are alowd to create Projects.'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
