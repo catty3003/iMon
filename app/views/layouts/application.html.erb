@@ -15,14 +15,10 @@
 	<%= stylesheet_link_tag 'bootstrap.scss' %> 
 </head>
 <body>
-	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-	  <div class="container">
-	    <div class="navbar-header">
-	      <%= link_to 'iMon', root_path, class: "navbar-brand" %>
-	    </div>
-	  </div>
-	</div>
+
 	<div class="container">
+		<%= render 'layouts/navigation' %>
+		<%= render 'layouts/messages' %>
 	  <%= yield %>
 	</div>
 
