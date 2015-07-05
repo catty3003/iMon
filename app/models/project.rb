@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
 
 	belongs_to :user
+	has_many :ideas
 
 	validates :name, :deadline, presence: true
 	validates :duration, presence: true, numericality: true 

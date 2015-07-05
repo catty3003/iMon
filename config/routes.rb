@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :ideas
   get 'home/index'
 
   devise_for :users
