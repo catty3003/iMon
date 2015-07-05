@@ -8,7 +8,8 @@ class ProjectsControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:projects)
+    assert_not_nil assigns(:done)
+    assert_not_nil assigns(:todo)
   end
 
   test "should get new" do
