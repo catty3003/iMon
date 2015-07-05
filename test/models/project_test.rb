@@ -31,4 +31,22 @@ class ProjectTest < ActiveSupport::TestCase
 	 assert !project.is_delayed?
 	end
 
+	test "destance in days from today" do
+	  project = Project.new
+	  project.deadline = Date.today
+	  assert_equal 0, project.distance_from_now_in_days
+	end
+
+	test "destance in days from yesterday" do
+	  project = Project.new
+	  project.deadline = Date.today - 1
+	  assert_equal -1, project.distance_from_now_in_days
+	end
+
+	test "destance in days from tomorrow" do
+	  project = Project.new
+	  project.deadline = Date.today + 1
+	  assert_equal 1, project.distance_from_now_in_days
+	end 
+
 end

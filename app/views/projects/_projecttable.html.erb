@@ -35,7 +35,12 @@
           <% end %>
         </td>
         <td class="<%= css_class %>"><%= link_to project.name, project_path(project) %></td>
-        <td><%= project.deadline %></td>
+        <td>
+          <%= "in " if !project.is_delayed? %> 
+          <%= pluralize(project.distance_from_now_in_days.abs, "Day")  %>
+          <%= " ago " if project.is_delayed? %>
+          ( <%= project.deadline %>) 
+        </td>
         <td><%= project.duration %></td>                   
       </tr>
     <% end %>
