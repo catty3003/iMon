@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
-
+    before_action :set_idea_identification, only: [ :edit, :update, :destroy]
+  before_action :authenticate_user!
   # GET /ideas
   # GET /ideas.json
   def index
@@ -65,6 +66,13 @@ class IdeasController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_idea
       @idea = Idea.find(params[:id])
+    end
+
+    def set_idea_identification
+      @idea = Idea.find(params[:id])
+      if @idea.user_id != current_user.id
+        redirect_to idea_path, alert: 'You can edit oder delete only your own Ideas.'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
