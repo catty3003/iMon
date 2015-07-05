@@ -4,8 +4,13 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @done = Project.where(done: true).order(deadline: :desc)
-    @todo = Project.where(done: false).order(deadline: :asc)
+    if params[:sorting]
+      @done = Project.where(done: true).order(params[:sorting] => :asc)
+      @todo = Project.where(done: false).order(params[:sorting] => :asc)
+    else
+      @done = Project.where(done: true).order(deadline: :desc)
+      @todo = Project.where(done: false).order(deadline: :asc)
+    end
   end
 
   # GET /projects/1

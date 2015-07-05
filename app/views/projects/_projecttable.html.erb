@@ -2,9 +2,27 @@
   <thead>
     <tr>
       <th></th>
-      <th>Name</th>
-      <th>Deadline</th>
-      <th>Duration</th>
+      <th>
+      <% if params[:sorting] == "name" %>
+        Name
+      <% else %>
+        <%= link_to "Name", projects_path(sorting: "name") %>
+      <% end %>
+      </th>
+      <th>
+      <% if params[:sorting] == "deadline" %>
+        Deadline
+      <% else %>
+        <%= link_to "Deadline", projects_path(sorting: "deadline") %>
+      <% end %>
+      </th>
+      <th>
+      <% if params[:sorting] == "duration" %>
+        Duration
+      <% else %>
+        <%= link_to "Duration", projects_path(sorting: "duration") %>
+      <% end %> 
+      </th>
     </tr>
   </thead>
 
