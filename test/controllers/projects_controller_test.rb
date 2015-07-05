@@ -1,15 +1,17 @@
 require 'test_helper'
 
 class ProjectsControllerTest < ActionController::TestCase
-  
+
   include Devise::TestHelpers
 
   setup do
     @project = projects(:one)
+    @user = users(:one)
     request.env["HTTP_REFERER"] = "http://localhost:3000"
   end
 
   test "should get index" do
+    sign_in @user
     get :index
     assert_response :success
     assert_not_nil assigns(:done)
@@ -17,11 +19,13 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
+    sign_in @user
     get :new
     assert_response :success
   end
 
   test "should create project" do
+    sign_in @user
     assert_difference('Project.count') do
       post :create, project: { deadline: @project.deadline, done: @project.done, duration: @project.duration, name: @project.name, user_id: @project.user_id }
     end
@@ -30,25 +34,34 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should show project" do
+    sign_in @user
     get :show, id: @project
     assert_response :success
   end
 
   test "should get edit" do
+    sign_in @user
     get :edit, id: @project
     assert_response :success
   end
 
   test "should update project" do
+    sign_in @user
     patch :update, id: @project, project: { deadline: @project.deadline, done: @project.done, duration: @project.duration, name: @project.name, user_id: @project.user_id }
     assert_redirected_to :back  
   end
 
   test "should destroy project" do
+    sign_in @user
     assert_difference('Project.count', -1) do
       delete :destroy, id: @project
     end
 
     assert_redirected_to projects_path
+  end
+
+  test "should not get edit if not logged in" do
+    get :edit, id: @project
+    assert_response :redirect
   end
 end

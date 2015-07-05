@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20150705055431) do
 
   create_table "projects", force: :cascade do |t|
-    t.string   "name"
+    t.text     "name"
     t.date     "deadline"
     t.boolean  "done"
     t.float    "duration"
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 20150705055431) do
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "username"
+    t.integer  "age"
+    t.string   "sex"
+    t.string   "nationality"
+    t.string   "qualification"
+    t.string   "profession"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
