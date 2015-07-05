@@ -79,14 +79,15 @@ class ProjectsController < ApplicationController
 
     def set_project_admin_edit_destroy
       @project = Project.find(params[:id])
-      if @project.user_id != current_user.id || @project.user.admin != true
+      if @project.user_id != current_user.id || current_user.admin != true
         redirect_to :back, alert: 'Only Admin are alowd to edit or delete Projects/ You can only change your own Project.'
       end
     end
 
     def set_project_admin_create
       @project = Project.new
-      if @project.user_id != current_user.id || @project.user.admin != true
+      
+      if current_user.admin != true
         redirect_to :back, alert: 'Only Admin are alowd to create Projects.'
       end
     end
