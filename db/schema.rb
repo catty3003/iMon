@@ -14,10 +14,11 @@
 ActiveRecord::Schema.define(version: 20150705055431) do
 
   create_table "projects", force: :cascade do |t|
-    t.text     "name"
+    t.string   "name"
     t.date     "deadline"
     t.boolean  "done"
     t.float    "duration"
+    t.text     "comment"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
