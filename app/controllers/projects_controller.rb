@@ -5,11 +5,13 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     if params[:sorting]
-      @done = Project.where(done: true).order(params[:sorting] => :asc)
-      @todo = Project.where(done: false).order(params[:sorting] => :asc)
-    else
-      @done = Project.where(done: true).order(deadline: :desc)
-      @todo = Project.where(done: false).order(deadline: :asc)
+      @done = Project.where("done = ? OR deadline < ?", true, Date.today).order(params[:sorting] => :asc)
+      @todo = Project.where("done = ? AND deadline > ?", false, Date.today).order(params[:sorting] => :asc)
+    else 
+      @done = Project.where("done = ? OR deadline < ?", true, Date.today)      
+      @done = @done.order(deadline: :desc)
+      @todo = Project.where("done = ? AND deadline > ?", false, Date.today)
+      @todo = @todo.order(deadline: :asc)
     end
   end
 
