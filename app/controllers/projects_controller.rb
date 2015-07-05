@@ -2,10 +2,16 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :set_project_admin_edit_destroy, only: [:edit, :update, :destroy]
   before_action :set_project_admin_create, only: [:new, :create]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:home, :about]
 
   # GET /projects
   # GET /projects.json
+  def home
+  end
+
+  def about
+  end
+
   def index
     if params[:sorting]
       @done = Project.where("done = ? OR deadline < ?", true, Date.today).order(params[:sorting] => :asc)

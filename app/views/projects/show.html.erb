@@ -1,37 +1,60 @@
 <p id="notice"><%= notice %></p>
+<div class="bs-docs-section">
+  <div class="row">
+    <div class="col-md-12">
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+      <div class="page-header">          
+        <h1> Project from User <%= @project.user.username %></h1>
+      </div>
 
-<p>
-  <strong>Deadline:</strong>
-  <%= @project.deadline %>
-</p>
+      <div class="col-md-3" id="leftCol">
+        <div class="well">    
+          
+        </div>
+      </div>     
 
-<p>
-  <strong>Done:</strong>
-  <%= @project.done %>
-</p>
+      <div class="col-md-9" id="rightCol"> 
+        <div class="well"> 
+          <p>
+          <strong>Name:</strong>
+            <%= @project.name %>
+          </p>
 
-<p>
-  <strong>Duration:</strong>
-  <%= @project.duration %>
-</p>
+          <p>
+            <strong>Comment:</strong>
+            <%= @project.comment %>
+          </p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @project.comment %>
-</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <td>Status</td>
+              <td>Deadline</td>
+              <td>Duration</td>
+              <td colspan="3"></td>
+            </tr>
+          </thead>
 
-<p>
-  <strong>User:</strong>
-  <%= @project.user_id %>
-</p>
+          <tbody>
+              <tr>
+                <td>
+                  <%= form_for @project do |f| %>
+                  <%= f.check_box :done, class: "checkable" %>
+                  <% end %>
+                </td>
+                <td><%= @project.deadline %></td>
+                <td><%= @project.duration %></td>
+                <td><%= link_to 'Back', projects_path %></td>
+                <td><%= link_to 'Edit', edit_project_path(@project) %></td>
+                <td><%= link_to 'Destroy', @project, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+          </tbody>
+        </table>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
+        </div>
+      </div>
 
-<%= link_to 'Back', projects_path %> |
+    </div>
+  </div>
+</div>
 
-<td><%= link_to 'Destroy', @project, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>

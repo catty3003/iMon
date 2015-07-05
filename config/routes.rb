@@ -1,19 +1,19 @@
 Rails.application.routes.draw do
 
-
+  get "projects/home"
+  get "projects/about"
   resources :ideas
-  get 'home/index'
-
   devise_for :users
   resources :projects
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'projects#index'
+  root 'projects#home'
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  #   get 'ideas/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
