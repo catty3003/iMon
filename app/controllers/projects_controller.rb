@@ -19,7 +19,6 @@ class ProjectsController < ApplicationController
     else 
       @done = Project.where("done = ? OR deadline < ?", true, Date.today).order(deadline: :desc)     
       @todo = Project.where("done = ? AND deadline > ?", false, Date.today).order(deadline: :asc)
-
     end
   end
 

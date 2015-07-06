@@ -1,9 +1,13 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
-    before_action :set_idea_identification, only: [ :edit, :update, :destroy]
+  before_action :set_idea_identification, only: [ :edit, :update, :destroy]
   before_action :authenticate_user!
   # GET /ideas
   # GET /ideas.json
+  def start
+    @projects = Project.where(done: false)
+  end
+
   def index
     @ideas = Idea.all
   end
@@ -25,7 +29,7 @@ class IdeasController < ApplicationController
   # POST /ideas
   # POST /ideas.json
   def create
-    @idea = Idea.new(idea_params)
+    @idea = current_user.ideas.new(idea_params)
 
     respond_to do |format|
       if @idea.save
@@ -74,6 +78,7 @@ class IdeasController < ApplicationController
         redirect_to idea_path, alert: 'You can edit oder delete only your own Ideas.'
       end
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params

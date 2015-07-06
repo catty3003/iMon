@@ -18,6 +18,13 @@ html {
   vertical-align: bottom;
 }
 
+textarea{ 
+
+  height:200px; 
+  min-height:150px;  
+  max-height:300px;
+}
+
 th {
   background-color:   #20B2AA;
   font-weight:bold;
