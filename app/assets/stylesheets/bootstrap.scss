@@ -159,10 +159,7 @@ h1 {
 
 
 
-@font-face {
-    font-family: 'Lobster';
-    src: url("//fonts.googleapis.com/css?family=Lobster");
-}
+
 @import url("//fonts.googleapis.com/css?family=Lobster|Cabin:400,700");
 /*!
  * Bootswatch v3.1.1+1
@@ -530,7 +527,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'Lobster', cursive;
+  font-family: 'Lobster', "lucida calligraphy", Arial, san-serif;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -5954,7 +5951,7 @@ button.close {
   }
 }
 .navbar-brand {
-  font-family: 'Lobster', cursive;
+  font-family: 'Lobster', "lucida calligraphy", Arial, san-serif;
 }
 .navbar-default .badge {
   background-color: #fff;
@@ -6005,7 +6002,7 @@ textarea {
   color: #444444;
 }
 legend {
-  font-family: 'Lobster', cursive;
+  font-family: 'Lobster', "lucida calligraphy", Arial, san-serif;
   color: #fff;
 }
 .input-group-addon {
