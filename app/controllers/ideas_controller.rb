@@ -6,6 +6,7 @@ class IdeasController < ApplicationController
   # GET /ideas.json
   def start
     @projects = Project.where(done: false)
+    #@project = Project.find(params[:id])
   end
 
   def index

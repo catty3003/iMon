@@ -28,7 +28,7 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= link_to project.name, new_idea_path %></td>
+        <td><%= link_to project.name, project_path(id: project.id) %></td>
         <td>
           <%= "in " if !project.is_delayed? %> 
           <%= pluralize(project.distance_from_now_in_days.abs, "Day")  %>
