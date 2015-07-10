@@ -1,82 +1,48 @@
 <p id="notice"><%= notice %></p>
 <div class="bs-docs-section">
+
   <div class="row">
     <div class="col-md-12">
-
       <div class="page-header">          
         <h1> Project from User <%= @project.user.username %></h1>
       </div>
-
       <div class="col-md-3" id="leftCol">
-        <div class="well">    
-          
+        <div class="well">          
         </div>
-      </div>     
-
-      <div class="col-md-9" id="rightCol"> 
-        <div class="well"> 
-
-          <div class="panel panel-info">
-            <div class="panel-body">
-              <p>
-              <strong>Name:</strong>
-                <%= @project.name %>
-              </p>
-
-              <p>
-                <strong>Comment:</strong>
-                <%= @project.comment %>
-              </p>
-
-              <table class="table">
-                <thead>
-                  <tr>
-                    <td>Status</td>
-                    <td>Deadline</td>
-                    <td>Duration</td>
-                    <td colspan="3"></td>
-                  </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                      <td>
-                        <%= form_for @project do |f| %>
-                        <%= f.check_box :done, class: "checkable" %>
-                        <% end %>
-                      </td>
-                      <td><%= @project.deadline %></td>
-                      <td><%= @project.duration %></td>
-                      <td><%= link_to 'Back to Project overview', projects_path, class: "btn btn-info btn-sm" %></td>
-
-                      <% if current_user.admin == true %>
-                      <td><%= link_to 'Edit', edit_project_path(@project), class: "btn btn-warning btn-sm" %></td>
-                      <td><%= link_to 'Destroy', @project, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                      <% else %>
-                      <% end %>
-
-                    </tr>
-                </tbody>
-              </table>
-
-            </div>
-          </div>   
-
-        </div>
-
-          <% @project.ideas.order(created_at: :desc).each do |idea| %>
-            <div class="col-md-4">
-              <div class="thumbnail", id="thumb">                           
-                <%= link_to idea.post, idea_path(idea) %>                          
-              </div>
-            </div>
-          <% end %>
-
-
       </div>
-
+      <div class="col-md-9" id="rightCol"> 
+        <!-- <div class="well"> -->
+          <%= render 'info' %>
+        <!-- </div> -->
+      </div>
     </div>
-  </div>
+  </div>  
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-9 col-md-offset-3" >  
+        <div class="well">
+          <h2>Ideas</h2>
+          <ul class="nav nav-tabs">
+            <li class="active"><a  href="#myIdeas" data-toggle="tab">my Ideas</a></li>
+            <li><a href="#allIdeas" data-toggle="tab">all Ideas</a></li>
+          </ul>
+          <div class="tab-content" style="padding: 0px 20px 0px 20px">
+            <div class="tab-pane active" id="myIdeas">  
+                <p>noch nicht geschafft: eigene Ideen zum Produkt anzeigen</p>
+            </div>
+            <div class="tab-pane" id="allIdeas">              
+              <%= render 'tab_allIdeas' %>          
+            </div>
+          </div>
+        </div>
+      </div>            
+    </div>
+  </div> 
+
+
 </div>
 
 

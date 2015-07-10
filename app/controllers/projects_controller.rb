@@ -25,6 +25,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @ideas = Idea.all
+    @userprojects = current_user.projects.all
   end
 
   # GET /projects/new
