@@ -1,14 +1,14 @@
 <div class="row">
-  <% @userideas.each do |project| %>
-  <% project.ideas.each do |idea| %>
+  <% @userprojects.each do |project| %>
+  
 
       <div class="panel panel-success">             
         <div class="panel-body">                          
           <p>        
-            <%= idea.post %>
+            <%= project.name %>
           </p>                
         </div>
       </div>                  
-  <% end %> 
+  
   <% end %>
 </div>

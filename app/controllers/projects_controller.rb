@@ -27,6 +27,10 @@ class ProjectsController < ApplicationController
   def show
     @ideas = Idea.all
     @userprojects = current_user.projects.all
+    @userideas =
+        current_user.projects.each do |project|
+        project.ideas
+      end
   end
 
   # GET /projects/new

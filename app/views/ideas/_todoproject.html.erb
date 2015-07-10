@@ -26,7 +26,7 @@
   </thead>
 
   <tbody>
-    <% @projects.each do |project| %>
+    <% @todo.each do |project| %>
       <tr>
         <td><%= link_to project.name, project_path(id: project.id) %></td>
         <td>
