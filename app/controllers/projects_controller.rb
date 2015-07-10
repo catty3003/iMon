@@ -31,6 +31,8 @@ class ProjectsController < ApplicationController
         current_user.projects.each do |project|
         project.ideas
       end
+    @uideas = Project.find(params[:id])
+    @uideas = @uideas.ideas 
   end
 
   # GET /projects/new
