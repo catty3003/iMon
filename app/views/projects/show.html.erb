@@ -7,7 +7,14 @@
         <h1> Project from User <%= @project.user.username %></h1>
       </div>
       <div class="col-md-3" id="leftCol">
-        <div class="well">          
+        <div class="well" id="left">  
+        <%= form_for @idea, :html => { :role => "form"} do |f| %>        
+          <%= f.text_area :post %>
+          <%= f.hidden_field :project_id, { :value => @project.id } %>
+          <%= f.hidden_field :user_id, { :value => current_user.id} %>
+          <br/>
+          <%= f.submit %>  
+        <% end %>         
         </div>
       </div>
       <div class="col-md-9" id="rightCol"> 

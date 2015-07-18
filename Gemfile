@@ -55,3 +55,6 @@ gem 'puma'
 
 #Authentication
 gem 'devise', github: 'plataformatec/devise'
+
+# Gem für Form in Form
+gem 'nested_form'

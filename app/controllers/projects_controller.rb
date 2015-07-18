@@ -27,17 +27,14 @@ class ProjectsController < ApplicationController
   def show
     @ideas = Idea.all
     @userprojects = current_user.projects.all
-    @userideas =
-        current_user.projects.each do |project|
-        project.ideas
-      end
-    @uideas = Project.find(params[:id])
-    @uideas = @uideas.ideas 
+    @userideas = Project.find(params[:id]).ideas
+    @idea = Idea.new
   end
 
   # GET /projects/new
   def new
     @project = Project.new
+    @project.ideas.build
   end
 
   # GET /projects/1/edit
@@ -106,6 +103,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :deadline, :done, :duration, :comment, :user_id)
+      params.require(:project).permit(:name, :deadline, :done, :duration, :comment, :user_id, agentparams_attributes: [:id, :post, :user_id, :project_id, :_destroy])
     end
 end

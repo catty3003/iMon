@@ -1,5 +1,7 @@
+</br>
+
 <div class="row">
-  <% @uideas.each do |idea| %>
+  <% @userideas.order(created_at: :desc).each do |idea| %>
     <% if idea.user_id == current_user.id %>
       <div class="panel panel-success">             
         <div class="panel-body">                                            
