@@ -20,10 +20,10 @@
       <% end %>
       </th>
       <th>
-      <% if params[:sorting] == "duration" %>
-        Duration
+      <% if params[:sorting] == "question" %>
+        Question
       <% else %>
-        <%= link_to "Duration", projects_path(sorting: "duration") %>
+        <%= link_to "Question", projects_path(sorting: "question") %>
       <% end %> 
       </th>
       <% if current_user.admin == false %>
@@ -51,7 +51,7 @@
           <%= " ago " if project.is_delayed? %>
           ( <%= project.deadline %>) 
         </td>
-        <td><%= project.duration %></td> 
+        <td><%= project.question %></td> 
           <% if current_user.admin == false %>
           <td>
             <% if project.done == true %>

@@ -4,7 +4,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :name
       t.date :deadline
       t.boolean :done
-      t.float :duration
+      t.string :question
       t.text :comment
       t.integer :user_id
 

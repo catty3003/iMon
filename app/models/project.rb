@@ -3,8 +3,7 @@ class Project < ActiveRecord::Base
 	belongs_to :user
 	has_many :ideas
 
-	validates :name, :deadline, presence: true
-	validates :duration, presence: true, numericality: true 
+	validates :name, :deadline, :question, presence: true
 
 	def is_delayed?
 	 self.deadline < Date.today

@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150705192312) do
     t.string   "name"
     t.date     "deadline"
     t.boolean  "done"
-    t.float    "duration"
+    t.string   "question"
     t.text     "comment"
     t.integer  "user_id"
     t.datetime "created_at", null: false
