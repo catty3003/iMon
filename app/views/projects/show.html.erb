@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <div class="bs-docs-section">
 
   <div class="row">
@@ -9,7 +8,7 @@
       <div class="col-md-3" id="leftCol">
         <div class="well" id="left">  
         <%= form_for @idea, :html => { :role => "form"} do |f| %>        
-          <%= f.text_area :post %>
+          <%= f.text_area :post, :size => "20x10", :maxlength => 300, class: "form-control", placeholder: "Can't wait for your Idea, but only 300 Characters" %>
           <%= f.hidden_field :project_id, { :value => @project.id } %>
           <%= f.hidden_field :user_id, { :value => current_user.id} %>
           <br/>
