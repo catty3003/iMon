@@ -1,5 +1,3 @@
-<%= link_to 'New Project', new_project_path, class: "btn btn-success btn-sm" %>
-
 <div class="bs-docs-section">
   <div class="row">
     <div class="col-md-12">
@@ -16,6 +14,7 @@
 
       <div class="col-md-9" id="rightCol"> 
         <div class="well"> 
+          <%= link_to 'New Project', new_project_path, class: "btn btn-success btn-sm" %>
           <div class="table-responsive table-scrollable">
             <h2>To do </br><small><%= pluralize(@todo.count, "Project") %></small></h2>
             <%= render partial: "projecttable", locals: {projects: @todo, css_class: "todo"} %>

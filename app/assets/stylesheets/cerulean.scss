@@ -13,7 +13,13 @@ html {
 }
 
 #left {
-    position: fixed;
+position:fixed;
+bottom: 1px;
+margin: 0 auto;
+max-width: 300 px;
+z-index:999999;
+background-color: #157ab5;
+background-color: rgba( 21, 122, 181, 0.8);
 }
 
 #center{
@@ -3305,6 +3311,7 @@ fieldset[disabled] .btn-default.active {
 }
 .btn-primary {
   color: #ffffff;
+  font-weight: bold;
   background-color: #2fa4e7;
   border-color: #2fa4e7;
 }
@@ -3316,6 +3323,7 @@ fieldset[disabled] .btn-default.active {
 }
 .btn-primary:hover {
   color: #ffffff;
+  font-weight: bold;
   background-color: #178acc;
   border-color: #1684c2;
 }

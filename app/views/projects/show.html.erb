@@ -6,17 +6,19 @@
         <h1><%= @project.question %></h1>
       </div>
       <div class="col-md-3" id="leftCol">
-        <div class="well" id="left">  
+        <div class="well", id="left">
         <%= form_for @idea, :html => { :role => "form"} do |f| %>        
           <%= f.text_area :post, :size => "20x10", :maxlength => 300, class: "form-control", placeholder: "Can't wait for your Idea, but only 300 Characters" %>
           <%= f.hidden_field :project_id, { :value => @project.id } %>
           <%= f.hidden_field :user_id, { :value => current_user.id} %>
           <br/>
-          <%= f.submit %>  
+          <div class="actions">
+            <%= f.submit "Save Idea", class: "btn btn-primary" %>  
+          </div>   
         <% end %>         
-        </div>
       </div>
-      <div class="col-md-9" id="rightCol"> 
+      </div>
+      <div class="col-md-9 col-md-offset-3"> 
         <div class="well">
           <%= render 'info' %>
         </div> 
