@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
 	has_many :ideas
 
 	validates :name, :deadline, :question, presence: true
+	validates :name, uniqueness: true
 
 	def is_delayed?
 	 self.deadline < Date.today

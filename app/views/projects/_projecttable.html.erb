@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <% if current_user.admin == true %>
-        <th></th>
+        <th>Done?</th>
         <% else %>
       <% end %>
       <th>
@@ -45,7 +45,7 @@
           <%= "in " if !project.is_delayed? %> 
           <%= pluralize(project.distance_from_now_in_days.abs, "Day")  %>
           <%= " ago " if project.is_delayed? %>
-          ( <%= project.deadline %>) 
+          (<%= project.deadline %>) 
         </td>
         <td><%= project.question %></td>                  
       </tr>

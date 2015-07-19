@@ -1,7 +1,11 @@
 body {
-padding-top: 80px;
+padding-top: 50px;
 padding-bottom: 50px;
 height: 100%;
+background-image: url(pusteblume3.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
 }
 
 html {
@@ -135,12 +139,20 @@ h1 {
     vertical-align: middle;
 }
 
-.table > tbody > tr > td > h5 > a {
-  color: #2fa4e7;
+.table > tbody > tr > td > a {
+  font-weight:bold;
+}
+
+.table > tbody > tr > td > a:hover {
+  font-weight:bold;
 }
 
 .table > thead > tr > th > a {
   color: #555;
+}
+
+.nav-tabs > li > a {
+  color: #022A50;
 }
 
 
@@ -1269,12 +1281,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #2fa4e7;
+  color: #022A50;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #157ab5;
+  color: #2fa4e7;
   text-decoration: underline;
 }
 a:focus {
@@ -1359,7 +1371,7 @@ h6,
   font-family: "Helvetica Neue","lucida calligraphy", Helvetica, Arial, sans-serif;
   font-weight: 500;
   line-height: 1.1;
-  color: #317eac;
+  color: #022A50;
 }
 h1 small,
 h2 small,
@@ -2494,7 +2506,7 @@ th {
 
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #D9EDF7;
+  background-color: #d5ecfa;
 }
 .table-hover > tbody > tr:hover > td,
 .table-hover > tbody > tr:hover > th {
@@ -4251,8 +4263,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li > a {
   margin-right: 2px;
   line-height: 1.42857143;
-  border: 1px solid transparent;
-  border-radius: 4px 4px 0 0;
+  border: 1px solid #dddddd;
+  border-radius: 4px 4px 0 0; 
 }
 .nav-tabs > li > a:hover {
   border-color: #eeeeee #eeeeee #dddddd;
@@ -6044,7 +6056,8 @@ button.list-group-item-danger.active:focus {
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
-  background-color: #f5f5f5;
+  background-color: #eaf5fc;
+  background-color: hsla(560, 750, 950, 0.5);
   border: 1px solid #e3e3e3;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);

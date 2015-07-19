@@ -1,12 +1,10 @@
+</br>
+
 <div class="row">
   <% @project.ideas.order(created_at: :desc).each do |idea| %>
   <div class="col-md-4">
-    <div class="thumbnail", id="thumb"> 
-      <div class="panel panel-success">             
-        <div class="panel-body">                          
-          <%= link_to idea.post, idea_path(idea) %>                  
-        </div>
-      </div>
+    <div class="thumbnail", id="thumb">                          
+      <%= link_to idea.post, idea_path(idea) %>            
     </div>                  
   </div>
   <% end %> 
