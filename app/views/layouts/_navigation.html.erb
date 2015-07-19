@@ -13,9 +13,16 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="link"><%= link_to "Project", projects_path %></li>
-        <li class="link"><%= link_to "Ideas", ideas_path %></li>
-        <li class="link"><%= link_to "add Ideas", ideas_start_path %></li>        
+        <%unless current_user.blank? -%>
+        <% if current_user.admin == true %>
+          <li class="link"><%= link_to "Project", projects_path %></li>
+          <li class="link"><%= link_to "Ideas", ideas_path %></li>
+          <% else %>          
+        <% end %> 
+        <% else %>          
+        <% end %> 
+        
+        <li class="link"><%= link_to "Add Ideas", ideas_start_path %></li>        
         <li class="link"><%= link_to "About", projects_about_path %></li> 
       </ul>
 

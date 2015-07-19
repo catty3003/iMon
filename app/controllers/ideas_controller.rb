@@ -16,6 +16,10 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = Idea.all
+
+    if current_user.admin != true
+      redirect_to :root, alert: 'Only for Admins!'
+    end
   end
 
   # GET /ideas/1

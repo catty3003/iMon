@@ -28,17 +28,14 @@
               <td>
 
                 <%= form_for @project do |f| %>
-                <strong>Status  </strong><%= f.check_box :done, class: "checkable" %>
+                <strong>done?  </strong><%= f.check_box :done, class: "checkable" %>
                 <% end %>
-              </td>
-            <% else %>
-            <% end %>
+              </td>            
             <td><%= link_to 'Back to Project overview', projects_path, class: "btn btn-primary btn-sm" %></td>
-
-            <% if current_user.admin == true %>
             <td><%= link_to 'Edit', edit_project_path(@project), class: "btn btn-warning btn-sm" %></td>
             <td><%= link_to 'Destroy', @project, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% else %>
+            <td><%= link_to 'Back to Project overview', ideas_start_path, class: "btn btn-primary btn-sm" %></td>
             <% end %>
 
           </tr>

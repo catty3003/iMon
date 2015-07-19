@@ -20,6 +20,10 @@ class ProjectsController < ApplicationController
       @done = Project.where("done = ? OR deadline < ?", true, Date.today).order(deadline: :desc)     
       @todo = Project.where("done = ? AND deadline > ?", false, Date.today).order(deadline: :asc)
     end
+
+    if current_user.admin != true
+      redirect_to :root, alert: 'Only for Admins!'
+    end
   end
 
   # GET /projects/1
