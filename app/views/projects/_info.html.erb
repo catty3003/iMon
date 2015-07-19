@@ -6,23 +6,18 @@
     </p>
 
     <p>
-    <strong>Question:</strong>
-      <%= @project.question %>
+      <strong>Comment:</strong>
+      <%= @project.comment %>
     </p>
 
     <p>
-      <strong>Comment:</strong>
-      <%= @project.comment %>
+      <strong>Deadline:</strong>
+      <%= @project.deadline %>
     </p>
 
     <table class="table">
       <thead>
         <tr>
-          <% if current_user.admin == true %>
-            <td>Status</td>
-          <% else %>
-          <% end %>
-          <td>Deadline</td>
           <td colspan="3"></td>
         </tr>
       </thead>
@@ -31,14 +26,14 @@
           <tr>
             <% if current_user.admin == true %>
               <td>
+
                 <%= form_for @project do |f| %>
-                <%= f.check_box :done, class: "checkable" %>
+                <strong>Status  </strong><%= f.check_box :done, class: "checkable" %>
                 <% end %>
               </td>
             <% else %>
             <% end %>
-            <td><%= @project.deadline %></td>
-            <td><%= link_to 'Back to Project overview', projects_path, class: "btn btn-info btn-sm" %></td>
+            <td><%= link_to 'Back to Project overview', projects_path, class: "btn btn-primary btn-sm" %></td>
 
             <% if current_user.admin == true %>
             <td><%= link_to 'Edit', edit_project_path(@project), class: "btn btn-warning btn-sm" %></td>
