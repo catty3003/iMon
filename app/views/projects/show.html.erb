@@ -10,11 +10,8 @@
         <%= form_for @idea, :html => { :role => "form"} do |f| %>        
           <%= f.text_area :post, :size => "20x10", :maxlength => 300, class: "form-control", placeholder: "Can't wait for your Idea, but only 300 Characters" %>
           <%= f.hidden_field :project_id, { :value => @project.id } %>
-          <%= f.hidden_field :user_id, { :value => current_user.id} %>
-          <br/>
-          <div class="actions">
-            <%= f.submit "Save Idea", class: "btn btn-primary" %>  
-          </div>   
+          <%= f.hidden_field :user_id, { :value => current_user.id} %>            
+          <%= f.submit "Save Idea" %>               
         <% end %>         
       </div>
       </div>

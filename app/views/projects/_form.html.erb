@@ -1,4 +1,4 @@
-<%= form_for @project, :html => { :role => "form"} do |f| %>    
+<%= nested_form_for @project, :html => { :role => "form"} do |f| %>    
   <% if @project.errors.any? %>
     <div class="panel panel-danger">
       <div class="panel-heading">
@@ -35,6 +35,13 @@
     <%= f.label :comment %><br>
     <%= f.text_area :comment, class: "form-control", placeholder: "some description" %>
   </div>
+
+   <%= f.fields_for :creativitycards do |builder| %>
+        <%= render 'kreativismen', f: builder %>
+      <% end %>
+      <p><%= f.link_to_add "Add more fields.", :creativitycards, class: "btn btn-success btn-sm" %></p>
+      
+
   <div class="actions">
     <%= f.submit "Save Project", class: "btn btn-primary" %>  
     <%= link_to 'Back to Project overview', projects_path, class: "btn btn-default" %>
