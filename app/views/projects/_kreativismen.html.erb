@@ -1,14 +1,12 @@
-  <div class="col-md-6">
-    <div class="panel panel-info">
-      <div class="panel-body">
 
-
-            <%= f.link_to_remove "Remove fields.", class: "btn btn-danger btn-sm" %>
-
-          <div class="field">
-            <%= f.label :suggestion %><br>
-            <%= f.text_field :suggestion, class: "form-control" %>
-          </div>
-      </div> 
-    </div> 
+<div class="panel panel-info">
+  <div class="panel-body">
+    <%= f.link_to_remove "Remove Kreativismen", class: "btn btn-danger btn-sm" %>
+  <div class="field">
+    <%= f.label :suggestion %><br>
+    <%= f.text_area :suggestion, class: "form-control" %>
+    <%= f.hidden_field :project_id, { :value => @project.id } %>
+    <%= f.hidden_field :user_id, { :value => current_user.id} %> 
+  </div>
   </div> 
+</div> 

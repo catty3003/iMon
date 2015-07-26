@@ -6,20 +6,11 @@
         <h1><%= @project.question %></h1>
       </div>
       <div class="col-md-3" id="left_creativity">
-        <div id="side">
-          <% @creativitycards.each do |c| %>
-          <p><%= c.suggestion %></p>
-          <% end %> 
-        </div>
+        <%= render 'carousel_creativitycards' %>
       </div>
       <div class="col-md-3" id="left">    
         <div id="side2">           
-          <%= form_for @idea, :html => { :role => "form"} do |f| %>        
-            <%= f.text_area :post, :size => "25x10", :maxlength => 300, class: "form-control", placeholder: "Can't wait for your Idea, but only 300 Characters" %>
-            <%= f.hidden_field :project_id, { :value => @project.id } %>
-            <%= f.hidden_field :user_id, { :value => current_user.id} %>            
-            <%= f.submit "Save Idea", class: "btn btn-info btn-sm btn-block" %>               
-          <% end %>               
+          <%= render 'idea_input' %>    
         </div>
       </div>
       <div class="col-md-9 col-md-offset-3"> 
