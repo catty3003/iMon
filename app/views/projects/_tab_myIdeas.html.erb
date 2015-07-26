@@ -4,8 +4,8 @@
   <% @userideas.order(created_at: :desc).each do |idea| %>
     <% if idea.user_id == current_user.id %>
       <div class="col-md-4">
-        <div class="thumbnail", id="thumb">                                           
-          <p><%= idea.post %></p>                                      
+        <div class="thumbnail" id="thumb">                                           
+          <%= link_to idea.post, idea_path(idea) %>                                   
         </div>
       </div> 
       <% else %>                 

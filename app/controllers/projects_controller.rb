@@ -33,6 +33,7 @@ class ProjectsController < ApplicationController
     @userprojects = current_user.projects.all
     @userideas = Project.find(params[:id]).ideas
     @idea = Idea.new
+    @creativitycards = Creativitycard.all
   end
 
   # GET /projects/new

@@ -12,17 +12,98 @@ html {
   height: 100%;
 }
 
-@media (min-width: 992px) {
-  #left {
-  position:fixed;
-  bottom: 1px;
-  margin: 0 auto;
-  max-width: 300 px;
-  z-index:999999;
+#side{
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #eaf5fc;
+  background-color: hsla(560, 750, 950, 0.5);
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);}
+
+.side_content{
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  margin-right: -20px;
+  background-color: #eaf5fc;
+  background-color: hsla(560, 750, 950, 0.5);
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  }  
+
+#side{
+  min-height: 20px;
+  padding: 19px;
+  @media (max-width: 992px) {
+    margin-bottom: 20px;
+  }
+  @media (min-width: 992px) {
+    margin-left: -20px;
+    margin-right: 20px;
+  } 
+  background-color: #eaf5fc;
+  background-color: hsla(560, 750, 950, 0.5);
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);}
+
+  #side2{
+  min-height: 20px;
+  padding: 19px;
+  @media (max-width: 992px) {
+    margin-bottom: 20px;
+  }
+  @media (min-width: 992px){
+    margin-left: -20px;
+    margin-right: 20px;
+  }  
   background-color: #157ab5;
-  background-color: rgba( 21, 122, 181, 0.8);
+  background-color: rgba( 21, 122, 181, 0.8); 
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  }
+
+#left {
+  @media (min-width: 992px) {
+    position:fixed;
+    bottom: 1px;
+    margin: 0 auto;
+    z-index:999999;
+  }
+  @media (max-height: 350px) {
+    position: relative;
   }
 }
+
+#left_creativity {
+  @media (min-width: 992px){
+    position:fixed;
+    bottom: 310px;
+    margin: 0 auto;
+    z-index:999999;
+    max-height: 300px;
+    overflow-y:auto; 
+  }
+  @media (max-height: 600px) {
+    position: relative;
+    margin-top: 26%; 
+    margin-left: 26%;
+    margin-bottom: -27%;
+  }
+}
+
+.thumbnail > a{
+  color: #333;
+}
+
 
 #center{
     display: block;
@@ -52,8 +133,10 @@ h1 {
 }
 
 #thumb{
-  height: 210px;
-  min-height:210px; 
+  @media (min-width: 992px) {
+    height: 220px;
+    overflow-y:auto; 
+  }
   padding-left: 10px; 
 }
 
