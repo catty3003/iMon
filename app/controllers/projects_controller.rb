@@ -12,6 +12,9 @@ class ProjectsController < ApplicationController
   def about
   end
 
+  def help
+  end
+  
   def index
     if params[:sorting]
       @done = Project.where("done = ? OR deadline < ?", true, Date.today).order(params[:sorting] => :asc)
