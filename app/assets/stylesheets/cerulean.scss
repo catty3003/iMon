@@ -78,13 +78,10 @@ html {
     margin: 0 auto;
     z-index:999999;
   }
-  @media (max-height: 350px) {
-    position: relative;
-  }
 }
 
 #left_creativity {
-  @media (min-width: 992px){
+  @media (min-width: 992px) and (min-width: 992px){
     position:fixed;
     bottom: 310px;
     margin: 0 auto;
@@ -92,11 +89,13 @@ html {
     max-height: 300px;
     overflow-y:auto; 
   }
-  @media (max-height: 600px) {
+  @media (max-height: 600px) and (min-width: 992px) {
     position: relative;
-    margin-top: 26%; 
-    margin-left: 26%;
+    margin-top: 35%; 
+    margin-left: 27%;
     margin-bottom: -27%;
+    width: auto;
+    margin-right: -4%; 
   }
 }
 
