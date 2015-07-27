@@ -14,7 +14,9 @@
 
       <div class="col-md-9" id="rightCol"> 
         <div class="well"> 
-          <%= link_to 'New Project', new_project_path, class: "btn btn-success btn-sm" %>
+          <%= link_to 'New Project', new_project_path, class: "btn btn-success btn-sm" %> |  
+          <%= link_to 'Export XLS', url_for(:format => 'xls'), class: "btn btn-primary btn-sm" %> 
+          <%= link_to 'Export CSV', url_for(:format => 'csv'), class: "btn btn-primary btn-sm" %>
           <div class="table-responsive table-scrollable">
             <h2>To do </br><small><%= pluralize(@todo.count, "Project") %></small></h2>
             <%= render partial: "projecttable", locals: {projects: @todo, css_class: "todo"} %>

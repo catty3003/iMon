@@ -4,7 +4,10 @@
       <h1>Kreativismen</h1>
       
       <div class="row">
+        <% if current_user.admin == true %>
         <%= link_to 'New Creativitycard', new_creativitycard_path, class: "btn btn-success btn-sm" %>
+        <% else %>
+        <% end %>
         <br>
         <br>
         <% @creativitycards.order(created_at: :desc).each do |c| %>

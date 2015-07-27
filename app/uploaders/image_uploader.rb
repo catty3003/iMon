@@ -7,14 +7,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   version :thumb do
-    process :resize_to_fit => [200, 200]
+    process :resize_to_fit => [250, 250]
   end
 
   version :thumb2 do
-    process :resize_to_fit => [100, 100]
+    process :resize_to_fit => [150, 150]
   end
   version :normal do
-    process :resize_to_fit => [400, 400]
+    process :resize_to_fit => [500, 500]
   end
 
   def cache_dir

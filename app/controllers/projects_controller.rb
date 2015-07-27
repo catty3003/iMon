@@ -20,6 +20,8 @@ class ProjectsController < ApplicationController
   end
   
   def index
+    @projects =Project.all
+    
     if params[:sorting]
       @done = Project.where("done = ? OR deadline < ?", true, Date.today).order(params[:sorting] => :asc)
       @todo = Project.where("done = ? AND deadline > ?", false, Date.today).order(params[:sorting] => :asc)
@@ -30,6 +32,12 @@ class ProjectsController < ApplicationController
 
     if current_user.admin != true
       redirect_to :root, alert: 'Only for Admins!'
+    end
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @projects.to_csv }
+      format.xls
     end
   end
 
@@ -75,7 +83,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to :back, notice: 'Project was successfully updated.' }
+        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
