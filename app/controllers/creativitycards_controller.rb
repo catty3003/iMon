@@ -1,5 +1,8 @@
 class CreativitycardsController < ApplicationController
   before_action :set_creativitycard, only: [:show, :edit, :update, :destroy]
+  before_action :set_ccard_admin_edit_destroy, only: [:edit, :update, :destroy]
+  before_action :set_ccard_admin_create, only: [:new, :create]
+  before_action :authenticate_user!, except: [:home, :about, :help, :impressum]
 
   # GET /creativitycards
   # GET /creativitycards.json
@@ -66,6 +69,21 @@ class CreativitycardsController < ApplicationController
     def set_creativitycard
       @creativitycard = Creativitycard.find(params[:id])
     end
+
+    def set_ccard_admin_edit_destroy
+      @ccard = Creativitycard.find(params[:id])
+      if @ccard.user_id != current_user.id || current_user.admin != true
+        redirect_to :back, alert: 'Only Admin are alowd to edit or delete Creativitycards.'
+      end
+    end
+
+    def set_ccard_admin_create
+      @ccard = Creativitycard.new
+      
+      if current_user.admin != true
+        redirect_to :back, alert: 'Only Admin are alowd to create Creativitycards.'
+      end
+    end    
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def creativitycard_params

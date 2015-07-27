@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :set_project_admin_edit_destroy, only: [:edit, :update, :destroy]
   before_action :set_project_admin_create, only: [:new, :create]
-  before_action :authenticate_user!, except: [:home, :about]
+  before_action :authenticate_user!, except: [:home, :about, :help, :impressum]
 
   # GET /projects
   # GET /projects.json
@@ -41,6 +41,7 @@ class ProjectsController < ApplicationController
     @userideas = Project.find(params[:id]).ideas
     @idea = Idea.new
     @creativitycards = Creativitycard.all
+    @projectccard = Project.find(params[:id]).creativitycards
   end
 
   # GET /projects/new

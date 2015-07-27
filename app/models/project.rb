@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
 
 	belongs_to :user
 	has_many :ideas
-	has_many :creativitycards, dependent: :delete_all
+	has_many :creativitycards
 
 	validates :name, :deadline, :question, presence: true
 	validates :name, uniqueness: true

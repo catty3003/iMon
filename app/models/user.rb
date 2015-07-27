@@ -9,5 +9,6 @@ class User < ActiveRecord::Base
 
   has_many :projects 
   has_many :ideas
+  has_many :creativitycards
 
 end
