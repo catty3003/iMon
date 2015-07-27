@@ -1,4 +1,6 @@
-<%= nested_form_for @project, :html => { :role => "form"} do |f| %>    
+<%= nested_form_for @project, :html => { :multipart => true} do |f| %> 
+
+
   <% if @project.errors.any? %>
     <div class="panel panel-danger">
       <div class="panel-heading">

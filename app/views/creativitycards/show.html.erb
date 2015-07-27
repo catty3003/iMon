@@ -1,24 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Title:</strong>
+  <%= @creativitycard.title %>
+</p>
+
+<p>
   <strong>Suggestion:</strong>
   <%= @creativitycard.suggestion %>
 </p>
 
 <p>
-  <strong>Idea:</strong>
-  <%= @creativitycard.idea_id %>
+  <strong>Example:</strong>
+  <%= @creativitycard.example %>
 </p>
+
+<%= image_tag @creativitycard.image_url if @creativitycard.image? %>
 
 <p>
   <strong>Project:</strong>
-  <%= @creativitycard.project_id %>
+  <%= @creativitycard.project.name %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @creativitycard.user_id %>
+  <%= @creativitycard.user.username %>
 </p>
+
 
 <%= link_to 'Edit', edit_creativitycard_path(@creativitycard) %> |
 <%= link_to 'Back', creativitycards_path %>

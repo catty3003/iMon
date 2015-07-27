@@ -58,3 +58,7 @@ gem 'devise', github: 'plataformatec/devise'
 
 # Gem für Form in Form
 gem 'nested_form'
+
+#Bildupload
+gem 'carrierwave'
+gem 'mini_magick'

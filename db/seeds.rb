@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # ruby encoding: utf-8
-user1 = User.create!(username: "Alice", email: 'alice@alice.com', :password => 'topsecret', :password_confirmation => 'topsecret', admin: true)
-user2 = User.create!(username: "Bob", email: 'bob@bob.com', :password => 'topsecret', :password_confirmation => 'topsecret', admin: false)
+user1 = User.create!(username: "Alice", email: 'alice@alice.com', :password => 'topsecret', :password_confirmation => 'topsecret', admin: true, age: 18)
+user2 = User.create!(username: "Bob", email: 'bob@bob.com', :password => 'topsecret', :password_confirmation => 'topsecret', admin: false, age: 22)
 
 
 project1= Project.create(name: "Todo-Applikation", deadline: Date.today + 7.days, question: "Was steht an?", done: false, user_id: 1)
