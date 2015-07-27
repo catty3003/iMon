@@ -3,38 +3,25 @@
     <div class="col-md-12">
       <h1>Kreativismen</h1>
       
+      <div class="row">
+        <% @creativitycards.order(created_at: :desc).each do |c| %>
+        <div class="col-md-4">
+          <div class="thumbnail" >                          
+            <h3><%= link_to c.title, creativitycard_path(c) %></h3>
+            <p style="white-space: pre-line;"><%= c.suggestion %></p>
+            <p style="white-space: pre-line;"><strong>Beispiel: </strong><%= c.example %></p>
+            <% if current_user.admin == true %>
+              <%= link_to 'Show', c, class: "btn btn-success btn-sm" %> 
+              <%= link_to 'Edit', edit_creativitycard_path(c), class: "btn btn-warning btn-sm" %> 
+              <%= link_to 'Destroy', c, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+            <% else %>
+            <% end %>
+          </div>                  
+        </div>
+        <% end %> 
+      </div> 
+
+    <%= link_to 'New Creativitycard', new_creativitycard_path, class: "btn btn-primary btn-sm" %>
     </div>
   </div>
-</div> 
-
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Suggestion</th>
-      <th>Idea</th>
-      <th>Project</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @creativitycards.each do |creativitycard| %>
-      <tr>
-        <td style="white-space: pre-line;"><%= creativitycard.suggestion %></td>
-        <td><%= creativitycard.idea_id %></td>
-        <td><%= creativitycard.project_id %></td>
-        <td><%= creativitycard.user_id %></td>
-        <td><%= link_to 'Show', creativitycard %></td>
-        <td><%= link_to 'Edit', edit_creativitycard_path(creativitycard) %></td>
-        <td><%= link_to 'Destroy', creativitycard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Creativitycard', new_creativitycard_path %>
+</div>

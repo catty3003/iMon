@@ -4,7 +4,9 @@
     <%= f.link_to_remove "Remove Kreativismen", class: "btn btn-danger btn-sm" %>
   <div class="field">
   	<%= f.label :title %><br>
-    <%= f.text_field :title, class: "form-control" %>
+    <%= f.text_field :title, class: "form-control" %>    
+    <%= f.label :shortdescription %><br>
+    <%= f.text_area :shortdescription, class: "form-control" %>
     <%= f.label :suggestion %><br>
     <%= f.text_area :suggestion, class: "form-control" %>
     <%= f.label :example %><br>

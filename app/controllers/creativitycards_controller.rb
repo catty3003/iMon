@@ -87,6 +87,6 @@ class CreativitycardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def creativitycard_params
-      params.require(:creativitycard).permit(:title, :suggestion, :example, :image, :remote_image_url, :idea_id, :project_id, :user_id)
+      params.require(:creativitycard).permit(:title, :suggestion, :example, :shortdescription, :image, :remote_image_url, :idea_id, :project_id, :user_id)
     end
 end

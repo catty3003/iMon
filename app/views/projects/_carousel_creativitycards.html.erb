@@ -5,16 +5,16 @@
   <div class="row carousel-holder">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >      
 <ol class="carousel-indicators">
-	<% @projectccard.each do |c| %>
+	<% @creativitycards.each do |c| %>
     <li class="" data-slide-to="0" data-target="#carousel-example-generic"></li>
     <% end %>
 </ol>
       <div class="carousel-inner">
-  			<% @projectccard.each do |c| %>
+  			<% @creativitycards.each do |c| %>
         <div class="item">
-          <h3></h3>
+          <h3><%= c.title %></h3>
 					<p style="white-space: pre-line;">
-					    <%= c.suggestion %>
+					    <%= c.shortdescription %>
 					</p>
         </div>
         <% end %>
