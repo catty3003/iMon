@@ -17,6 +17,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [400, 400]
   end
 
+  def cache_dir
+    "#{Rails.root}/tmp/uploads"
+  end
+
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
