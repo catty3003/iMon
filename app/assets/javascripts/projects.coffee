@@ -19,4 +19,13 @@ jQuery.fn.clickCancelButton = ->
         $('#new_project').remove()
         $('#new_link').show()
 
+$(document).on 'ready page:load', ->
+    $('.carousel').carousel({
+      interval: 4000
+    });
+    $('.carousel-control.right').trigger('click');
+
+
+
+
 
