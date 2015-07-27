@@ -25,7 +25,7 @@
             </div>          
             <div class="form-group">
               <%= f.label :sex %><br />
-              <%= f.text_field :sex, class: "form-control" %>
+              <%= f.select :sex, ["Weiblich", "Männlich"], {:prompt => "bitte wählen"}, class: "form-control"  %>
             </div>
           </div>
         </div>
@@ -33,16 +33,16 @@
         <div class="col-md-4" id="rightCol">
           <div class="well"> 
             <div class="form-group">
-              <%= f.label :nationality %><br />
-              <%= f.text_field :nationality, class: "form-control" %>
-            </div>
-            <div class="form-group">
               <%= f.label :qualification %><br />
-              <%= f.text_field :qualification, class: "form-control" %>
+              <%= f.select :qualification, ["Universität/ Hochschule", "Abitur", "Fachhochulreife", "Mittlere Reife", "Hauptschulabschluss"], {:prompt => "bitte wählen"}, class: "form-control"  %>
             </div>
             <div class="form-group">
               <%= f.label :profession %><br />
               <%= f.text_field :profession, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :nationality %><br />
+              <%= f.text_field :nationality, class: "form-control" %>
             </div>
           </div>
         </div>

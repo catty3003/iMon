@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :username, presence:  true, uniqueness: true
+  validates_numericality_of :age, less_than_or_equal_to: 100, greater_than: 0, only_integer: true
 
   has_many :projects 
   has_many :ideas

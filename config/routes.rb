@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "projects/about"
   get "ideas/start"
   get "projects/help"
+  get "projects/impressum"
   
 
   devise_for :users

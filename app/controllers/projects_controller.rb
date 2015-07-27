@@ -14,6 +14,10 @@ class ProjectsController < ApplicationController
 
   def help
   end
+
+  def impressum
+    
+  end
   
   def index
     if params[:sorting]

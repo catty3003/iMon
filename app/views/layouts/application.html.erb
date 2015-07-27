@@ -15,12 +15,19 @@
 	<%= stylesheet_link_tag 'cerulean.scss' %> 
 </head>
 <body>
-
+<div id="wrap">
 	<div class="container">
 		<%= render 'layouts/navigation' %>
 		<%= render 'layouts/messages' %>
 	  <%= yield %>
 	</div>
+</div>
+
+<div id="footer">
+  <div class="container" id="f_id">
+    <p class="text-muted credit">Copyright &copy; Mai Dinh Thanh | <%= link_to "Impressum", projects_impressum_path %> | <%= link_to "Kreativismen", "http://www.kreativismen.de/", :target => "_blank" %></p>            
+  </div>
+</div>
 
 </body>
 </html>

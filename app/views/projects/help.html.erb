@@ -8,18 +8,22 @@
       </div>
 
       <div class="col-md-3" id="leftCol">
-        <div class="well">    
-          <strong>
-          <ul class="nav nav-sidebar">
-            <li class="active"><%= link_to "Step by Step", projects_help_path(anchor: "step") %></li>
-            <li><%= link_to "Sign-Up", projects_help_path(anchor: "sign-up") %></li>
-            <li><%= link_to "Edit Profile", projects_help_path(anchor: "edit") %></li>
-            <li><%= link_to "Add idea", projects_help_path(anchor: "add") %></li>
-            <li><%= link_to "Umfrage", projects_help_path(anchor: "frage") %></li>
-            <li><%= link_to "Logout", projects_help_path(anchor: "logout") %></li>
-            <li><%= link_to "Eigene Ideen einsehen", projects_help_path(anchor: "ideen") %></li>
-          </ul> 
-          </strong>
+        <div class="well">  
+          <div class="panel panel-primary">
+            <div class="panel-body">   
+            <strong>
+            <ul class="nav nav-sidebar">
+              <li class="active"><%= link_to "Step by Step", projects_help_path(anchor: "step") %></li>
+              <li><%= link_to "Sign-Up", projects_help_path(anchor: "sign-up") %></li>
+              <li><%= link_to "Edit Profile", projects_help_path(anchor: "edit") %></li>
+              <li><%= link_to "Add idea", projects_help_path(anchor: "add") %></li>
+              <li><%= link_to "Umfrage", projects_help_path(anchor: "frage") %></li>
+              <li><%= link_to "Logout", projects_help_path(anchor: "logout") %></li>
+              <li><%= link_to "Eigene Ideen einsehen", projects_help_path(anchor: "ideen") %></li>
+            </ul> 
+            </strong>
+            </div>
+          </div>
         </div>
       </div>     
 
@@ -27,13 +31,13 @@
         <div class="well"> 
           <div id="step">       
             <h3>Step by Step</h3>
-            <ol>
+            <ol><strong>
               <li><%= link_to "Sign-Up", projects_help_path(anchor: "sign-up") %></li>
               <li><%= link_to "Edit Profile", projects_help_path(anchor: "edit") %></li>
               <li><%= link_to "Add idea", projects_help_path(anchor: "add") %></li>
               <li><%= link_to "Fragebogen ausfüllen", projects_help_path(anchor: "frage") %></li>
               <li><%= link_to "Logout", projects_help_path(anchor: "logout") %></li>
-            </ol>
+            </strong></ol>
           </div>
           <br>
           <br>
@@ -76,14 +80,14 @@
             <p>Eine weitere Inspirationsquelle finden Sie in der linken oberen Ecke. Dort werden Ihnen in einer Karussell-Box verschiedene sogenannter Kreativismen vorgeschlagen. Dabei handelt es sich um Vorschläge kreativer Vorgehensweisen um zum Beispiel Denkblockaden zu lösen oder entferntere Assoziationen ans Tageslicht zu bringen. Wenn Sie einer der Kreativismen anspricht versuchen Sie es doch einfach einmal, die Beschreibung finden Sie direkt in der Box. Falls Sie nähere Informationen wünschen wählen Sie bitte den Hauptnavigationsreiter (Kopfzeile) Kreativismen an. Dort finden Sie die Liste sämtlicher vorgeschlagener Kreativismen.</p>
           </div>
 
-          <div id="sign-up">
+          <div id="frage">
             <br>
             <br>
             <h4>4. Umfrage</h4>
              <p>Wenn Sie für beide Projekte Ideen eingebracht haben, nehmen Sie sich doch bitte noch die Zeit, eine kurze Auswertung der Anwendung vorzunehmen. Zu diesem Zweck wählen Sie einfach den Hauptnavigationsreiter (Kopfzeile) Umfrage an. Sie werden zu einer Umfrage weitergeleitet. Diese wurde unter Einsatz von google-Umfragen erstellt und soll helfen die Anwendung zu verbessern und die Ergebnisse die sie hervorbringt besser zu verstehen. </p>
           </div>
 
-          <div id="log-out">
+          <div id="logout">
             <br>
             <br>
             <h4>5. Logout</h4>
