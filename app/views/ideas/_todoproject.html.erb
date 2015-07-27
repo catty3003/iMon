@@ -35,7 +35,7 @@
           <%= " ago " if project.is_delayed? %>
           ( <%= project.deadline %>) 
         </td>
-        <td><%= project.question %></td>                   
+        <td><%= link_to project.question, project_path(id: project.id) %></td>                   
       </tr>
     <% end %>
   </tbody>

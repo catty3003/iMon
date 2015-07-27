@@ -4,17 +4,20 @@
 
   <div class="row carousel-holder">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >      
-<ol class="carousel-indicators">
-	<% @creativitycards.each do |c| %>
-    <li class="" data-slide-to="0" data-target="#carousel-example-generic"></li>
-    <% end %>
-</ol>
+    <ol class="carousel-indicators">
+    	<% @creativitycards.each do |c| %>
+        <li class="" data-slide-to="0" data-target="#carousel-example-generic"></li>
+        <% end %>
+    </ol>
       <div class="carousel-inner">
   			<% @creativitycards.each do |c| %>
         <div class="item">
-          <h3><%= c.title %></h3>
-					<p style="white-space: pre-line;">
-					    <%= c.shortdescription %>
+          <h3><%= c.title %></h3>									    
+              <a class="menue">
+              <%= image_tag c.image_url(:thumb2) if c.image? %>
+              <span><%= image_tag c.image_url(:thumb) if c.image? %></span></a>
+          <p style="white-space: pre-line;">
+            <%= c.shortdescription %>
 					</p>
         </div>
         <% end %>
