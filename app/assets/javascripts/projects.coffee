@@ -23,7 +23,6 @@ $(document).on 'ready page:load', ->
     $('.carousel').carousel({
       interval: 4000
     });
-    $('.carousel-control.right').trigger('click');
 
 
 
