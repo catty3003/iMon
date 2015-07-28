@@ -15,14 +15,16 @@
       <ul class="nav navbar-nav">
         <%unless current_user.blank? -%>
         <% if current_user.admin == true %>
-          <li class="link"><%= link_to "Project", projects_path %></li>
-          <li class="link"><%= link_to "Ideas", ideas_path %></li>
+          <li class="link"><%= link_to "Project", projects_path %></li> | 
+          <li class="link"><%= link_to "Questionnaire result", questions_path %></li>
+          <li class="link"><%= link_to "Ideas", ideas_path %></li> |
           <% else %>          
         <% end %> 
         <% else %>          
         <% end %> 
         
         <li class="link"><%= link_to "Add Ideas", ideas_start_path %></li>
+        <li class="link"><%= link_to "Fragebogen", new_question_path %></li>
         <li class="link"><%= link_to "Kreativismen", creativitycards_path %></li> 
         <li class="link"><%= link_to "Help", projects_help_path %></li>
         <li class="link"><%= link_to "About", projects_about_path %></li> 
