@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Questions</h1>
+<%= link_to 'Export XLS', url_for(:format => 'xls'), class: "btn btn-primary btn-sm" %> 
+<%= link_to 'Export CSV', url_for(:format => 'csv'), class: "btn btn-primary btn-sm" %>
+
+<br>
 
 <table>
   <thead>
