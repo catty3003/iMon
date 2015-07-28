@@ -7,7 +7,7 @@ class CreativitycardsController < ApplicationController
   # GET /creativitycards
   # GET /creativitycards.json
   def index
-    @creativitycards = Creativitycard.all
+    @creativitycards = Creativitycard.all.order(:title)
   end
 
   # GET /creativitycards/1
