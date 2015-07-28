@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   before_action :set_admin, only: [:index]
-
+  before_action :set_user, only: [:new, :edit]
   before_action :authenticate_user!, except: [:home, :about, :help, :impressum]
 
 
@@ -19,10 +19,13 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
+    @userquestion = Question.all.where("user_id = current_user.id")
+
   end
 
   # GET /questions/1/edit
   def edit
+    @userquestion = Question.all.where("user_id = current_user.id")
   end
 
   # POST /questions
@@ -32,7 +35,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        format.html { redirect_to edit_question_path(@question), notice: 'Question was successfully created.' }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }
@@ -44,9 +47,10 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
+
     respond_to do |format|
       if @question.update(question_params)
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Question was successfully updated.' }
         format.json { render :show, status: :ok, location: @question }
       else
         format.html { render :edit }
@@ -75,6 +79,10 @@ class QuestionsController < ApplicationController
       if current_user == nil || current_user.admin != true
         redirect_to :back, alert: 'Only Admin are alowd to see results.'
       end
+    end
+
+    def set_user
+       @user = current_user
     end
 
 

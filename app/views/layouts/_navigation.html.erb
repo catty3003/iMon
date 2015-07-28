@@ -15,9 +15,9 @@
       <ul class="nav navbar-nav">
         <%unless current_user.blank? -%>
         <% if current_user.admin == true %>
-          <li class="link"><%= link_to "Project", projects_path %></li> | 
+          <li class="link"><%= link_to "Project", projects_path %></li>  
           <li class="link"><%= link_to "Questionnaire result", questions_path %></li>
-          <li class="link"><%= link_to "Ideas", ideas_path %></li> |
+          <li class="link"><%= link_to "Ideas", ideas_path %></li> 
           <% else %>          
         <% end %> 
         <% else %>          
