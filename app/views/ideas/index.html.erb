@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Ideas</h1>
+<%= link_to 'Export XLS', url_for(:format => 'xls'), class: "btn btn-primary btn-sm" %> 
+<%= link_to 'Export CSV', url_for(:format => 'csv'), class: "btn btn-primary btn-sm" %>
 
-<table>
+</br>
+</br>
+
+<table class="table table-striped table-bordered table-hover ">
   <thead>
     <tr>
       <th>Post</th>

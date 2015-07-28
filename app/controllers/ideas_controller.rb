@@ -20,6 +20,12 @@ class IdeasController < ApplicationController
     if current_user.admin != true
       redirect_to :root, alert: 'Only for Admins!'
     end
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @ideas.to_csv }
+      format.xls
+    end
   end
 
   # GET /ideas/1
