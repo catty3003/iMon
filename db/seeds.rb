@@ -7,4 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # ruby encoding: utf-8
-user1 = User.create!(username: "Alice", email: 'alice@alice.com', :password => 'topsecret', :password_confirmation => 'topsecret', admin: true, age: 18)
+
+c1 = Creativitycard.create(image: File.open(Rails.root + "app/assets/images/Addieren.png"))
