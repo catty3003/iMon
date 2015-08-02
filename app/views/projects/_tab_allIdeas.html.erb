@@ -1,7 +1,7 @@
 </br>
 
 <div class="row">
-  <% @project.ideas.order(created_at: :desc).each do |idea| %>
+  <% @project.ideas.order("RANDOM()").each do |idea| %>
   <div class="col-md-4">
     <div class="thumbnail" id="thumb">                          
       <%= link_to idea.post, idea_path(idea) %>            
