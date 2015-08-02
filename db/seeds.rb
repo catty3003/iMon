@@ -7,5 +7,3 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # ruby encoding: utf-8
-
-c1 = Creativitycard.create(image: File.open(Rails.root + "app/assets/images/Addieren.png"))

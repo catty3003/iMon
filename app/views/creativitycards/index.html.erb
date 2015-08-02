@@ -7,7 +7,8 @@
     </div>
   </div>
       
-  <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
 
 
       <% if current_user.admin == true %>
@@ -17,7 +18,7 @@
       <br>
       <br>
 
-      <% @creativitycards.order(created_at: :desc).each do |c| %>
+      <!-- <% @creativitycards.order(created_at: :desc).each do |c| %>
         <div class="col-md-4">
           <div class="thumbnail" >                          
             <h3><%= link_to c.title, creativitycard_path(c) %></h3>
@@ -36,9 +37,10 @@
             <% end %>
           </div>                  
         </div>
-      <% end %>
+      <% end %> -->
 
+      <%= render "kreativismen" %>
 
+    </div>
   </div>
-
 </div>
