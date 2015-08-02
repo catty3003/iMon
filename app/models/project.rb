@@ -20,7 +20,6 @@ class Project < ActiveRecord::Base
 	  (self.deadline - Date.today).to_i     
 	end
 
-
 	def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << column_names

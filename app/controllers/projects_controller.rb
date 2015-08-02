@@ -60,7 +60,7 @@ class ProjectsController < ApplicationController
   end
 
   # GET /projects/1/edit
-  def edit
+  def edit   
   end
 
   # POST /projects
