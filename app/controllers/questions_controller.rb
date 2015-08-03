@@ -91,7 +91,7 @@ class QuestionsController < ApplicationController
     def set_user_identification
       @question = Question.find(params[:id])
       if @question.user_id != current_user.id
-        redirect_to question_path, alert: 'You can edit oder delete only your own Ideas.'
+        redirect_to question_path, alert: 'You can edit oder delete only your own Questionaire.'
       end
     end
 
