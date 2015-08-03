@@ -39,8 +39,7 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(question_params)
-
+    @question = current_user.questions.new(question_params)
     respond_to do |format|
       if @question.save
         format.html { redirect_to edit_question_path(@question), notice: 'Questionnaire was successfully created.' }
