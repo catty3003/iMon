@@ -7,9 +7,9 @@ class Idea < ActiveRecord::Base
 
 	def self.to_csv(options = {})
     CSV.generate(options) do |csv|
-      csv << column_names
-      all.each do |ideas|
-        csv << ideas.attributes.values_at(*column_names)
+      csv << column_names  # hinzufügen von Spaltenbezeichnung zu CSV
+      all.each do |ideas|   
+        csv << ideas.attributes.values_at(*column_names) #jedes Attribut von der Idee werden die Spaltenbezeichnung zugeordnet
       end
     end
   end

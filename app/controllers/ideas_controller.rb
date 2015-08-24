@@ -5,22 +5,26 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def start
+    #Ausgabe von projekten nach done (done=true oder deadline ist vorbei) 
+    #und todo (done=false und deadline noch nicht erreicht ).
+    #:sorting gibt die Möglichkeit zu sortieren in View
     if params[:sorting]
       @done = Project.where("done = ? OR deadline < ?", true, Date.today).order(params[:sorting] => :asc)
-      @todo = Project.where("done = ? AND deadline > ?", false, Date.today).order(params[:sorting] => :asc)
+      @todo = Project.where("done = ? AND deadline >= ?", false, Date.today).order(params[:sorting] => :asc)
     else 
       @done = Project.where("done = ? OR deadline < ?", true, Date.today).order(deadline: :desc)     
-      @todo = Project.where("done = ? AND deadline > ?", false, Date.today).order(deadline: :asc)
+      @todo = Project.where("done = ? AND deadline >= ?", false, Date.today).order(deadline: :asc)
     end
   end
 
   def index
     @ideas = Idea.all
-
+    # Wenn User nicht Admin ist, darf er die Ideenliste nicht ansehen
     if current_user.admin != true
       redirect_to :root, alert: 'Only for Admins!'
     end
 
+    #Export zu csv-Format und Excel-format
     respond_to do |format|
       format.html
       format.csv { send_data @ideas.to_csv }
@@ -36,6 +40,7 @@ class IdeasController < ApplicationController
   # GET /ideas/new
   def new
     @idea = Idea.new
+    #Ausgabe von alle Ideen von User (Eigentümer)
     @useridea = current_user.ideas.all
   end
 
@@ -91,6 +96,7 @@ class IdeasController < ApplicationController
 
     def set_idea_identification
       @idea = Idea.find(params[:id])
+      # Nur User (Eigentümer) darf eigen Idee (sucht nach ID) anzeigen
       if @idea.user_id != current_user.id
         redirect_to idea_path, alert: 'You can edit oder delete only your own Ideas.'
       end

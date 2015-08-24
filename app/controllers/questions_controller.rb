@@ -10,7 +10,7 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all
-
+    # EXcel und CSV Export
     respond_to do |format|
       format.html
       format.csv { send_data @questions.to_csv }

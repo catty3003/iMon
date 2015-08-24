@@ -38,6 +38,9 @@
     <%= f.text_area :comment, class: "form-control", placeholder: "some description" %>
   </div>
 
+<!-- 
+  Block ermöglicht Kreativismen für Projekt zu erzeugen
+-->
   <div class="form-group"> 
     <%= f.fields_for :creativitycards do |builder| %>
     <%= render 'kreativismen', f: builder %>
@@ -45,6 +48,7 @@
     </br>
     <p><%= f.link_to_add "Add more Kreativismen", :creativitycards, class: "btn btn-success btn-sm" %></p>
   </div>   
+
 
   <div class="actions">
     <%= f.submit "Save Project", class: "btn btn-primary" %>  

@@ -8,6 +8,7 @@ class Project < ActiveRecord::Base
 	validates :name, :deadline, :question, presence: true
 	validates :name, uniqueness: true
 
+	# benötigt für gem 'nested_form'. Ermöglicht Kreativismenkarten im Proket-Controller zu erzeugen
 	accepts_nested_attributes_for :creativitycards, 
   		allow_destroy: true, 
       :reject_if => :all_blank

@@ -10,15 +10,13 @@ $(document).on 'ready page:load', ->
     todayHighlight: true
   });
 
+# Änderung von Checkbox-Werten speichern
 $(document).on 'ready page:load', ->
   $(".checkable").click ->
     $(this).parents('form').submit();
 
-jQuery.fn.clickCancelButton = ->
-    @find('#cancel_button').click ->
-        $('#new_project').remove()
-        $('#new_link').show()
 
+#damit Karousel beim Laden der Seite direkt startet
 $(document).on 'ready page:load', ->
     $('.carousel').carousel({
       interval: 4000

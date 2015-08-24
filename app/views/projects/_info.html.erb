@@ -24,9 +24,9 @@
 
       <tbody>
           <tr>
+            <!-- Checkbox wird nur für Admin sichtbar, und nur er darf Inhalt ändern" -->
             <% if current_user.admin == true %>
               <td>
-
                 <%= form_for @project do |f| %>
                 <strong>done?  </strong><%= f.check_box :done, class: "checkable" %>
                 <% end %>

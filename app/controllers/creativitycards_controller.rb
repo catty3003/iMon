@@ -7,6 +7,7 @@ class CreativitycardsController < ApplicationController
   # GET /creativitycards
   # GET /creativitycards.json
   def index
+    # alle Kreativismen wiedergeben, nach Titel geornet
     @creativitycards = Creativitycard.all.order(:title)
   end
 
@@ -71,6 +72,8 @@ class CreativitycardsController < ApplicationController
     end
 
     def set_ccard_admin_edit_destroy
+      # sucht Kreativismen nach ID, Inhalt wird nur Admin (Eigentümer, der zugleich Admin-status hat) angezeigt, der die Karte erstellt hat
+      # wenn Bedingung nicht zutrifft, dann Umleitung zur vorherige Seite
       @creativitycard = Creativitycard.find(params[:id])
       if @creativitycard.user_id != current_user.id || current_user.admin != true
         redirect_to :back, alert: 'Only Admin are alowd to edit or delete Creativitycards.'
@@ -79,7 +82,8 @@ class CreativitycardsController < ApplicationController
 
     def set_ccard_admin_create
       @creativitycard = Creativitycard.new
-      
+      # nur Admin darf Kreativismen erzeugen
+      # sonst Umleitung zur vorherige Seite
       if current_user.admin != true
         redirect_to :back, alert: 'Only Admin are alowd to create Creativitycards.'
       end

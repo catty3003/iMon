@@ -56,7 +56,7 @@ gem 'puma'
 #Authentication
 gem 'devise', github: 'plataformatec/devise'
 
-# Gem für Form in Form
+# Gem für Form in Form von anderer Controller bei 1:n Beziehung
 gem 'nested_form'
 
 #Bildupload

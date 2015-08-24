@@ -22,7 +22,9 @@ class ProjectsController < ApplicationController
   
   def index
     @projects =Project.all
-    
+    #Ausgabe von projekten nach done (done=true oder deadline ist vorbei) 
+    #und todo (done=false und deadline noch nicht erreicht ).
+    #:sorting gibt die Möglichkeit zu sortieren in View    
     if params[:sorting]
       @done = Project.where("done = ? OR deadline < ?", true, Date.today).order(params[:sorting] => :asc)
       @todo = Project.where("done = ? AND deadline >= ?", false, Date.today).order(params[:sorting] => :asc)
@@ -31,10 +33,12 @@ class ProjectsController < ApplicationController
       @todo = Project.where("done = ? AND deadline >= ?", false, Date.today).order(deadline: :asc)
     end
 
+    # Nur wenn User Administrator-status hat, hat Zugang zur Indexseite 
     if current_user.admin != true
       redirect_to :root, alert: 'Only for Admins!'
     end
 
+    # benötigt für Excel und CSV Export
     respond_to do |format|
       format.html
       format.csv { send_data @projects.to_csv }
@@ -45,11 +49,13 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @ideas = Idea.all
+    @ideas = Idea.
+    #Ausgabe von Projekten von Eigentümer (aktuell eingeloggter user)
     @userprojects = current_user.projects.all
     @userideas = Project.find(params[:id]).ideas
     @idea = Idea.new
     @creativitycards = Creativitycard.all
+    #Ausgabe von Kreativismen, die zum Projekt (ID) gehören
     @projectccard = Project.find(params[:id]).creativitycards
   end
 
@@ -111,6 +117,7 @@ class ProjectsController < ApplicationController
 
     def set_project_admin_edit_destroy
       @project = Project.find(params[:id])
+      # Umleitung zur vorherige Seite, wenn user nicht Admin und Eigentümer des Projekts ist
       if @project.user_id != current_user.id || current_user.admin != true
         redirect_to :back, alert: 'Only Admin are alowd to edit or delete Projects/ You can only change your own Project.'
       end
@@ -118,7 +125,7 @@ class ProjectsController < ApplicationController
 
     def set_project_admin_create
       @project = Project.new
-      
+      # Umleitung zur vorherige Seite, wenn User kein Admin-status hat
       if current_user.admin != true
         redirect_to :back, alert: 'Only Admin are alowd to create Projects.'
       end

@@ -10,7 +10,9 @@ class ApplicationController < ActionController::Base
 
 
 	def configure_permitted_parameters
+		# beim Sign-up "username" akzeptieren
 	  devise_parameter_sanitizer.for(:sign_up).push('username') 
+	  # beim Accountdaten aktualisieren die unten genannten Attribute akzeptieren
 	  devise_parameter_sanitizer.for(:account_update).push('username', 'age', 'sex', 'nationality', 'qualification', 'profession')
 	end
 

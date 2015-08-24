@@ -18,7 +18,11 @@
       <br>
       <br>
 
-      <!-- <% @creativitycards.order(created_at: :desc).each do |c| %>
+
+      <!-- Dieser Block wurde ausgeblendet, da Heroku keine Bilderuploads speichert. Dieser Blockt ermöglicht die Wiedergabe aller Kreativismen, die erstellt worden sind. Wenn der User Admin-status hat, wird Ihm die Möglichkeit zur Editieren und Löschen der Kreativismen gegeben. 
+      Gleicher Inhalt, der für das Experiment nötig war, wurde daher in Assets und in Partial "Kreativismen" manuell aufgeschrieben.
+      
+      <% @creativitycards.order(created_at: :desc).each do |c| %>
         <div class="col-md-4">
           <div class="thumbnail" >                          
             <h3><%= link_to c.title, creativitycard_path(c) %></h3>
